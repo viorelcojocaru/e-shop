@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:eshopdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    open-in-view: false
+  liquibase:
+    enabled: true
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    url: ${spring.datasource.url}
+    change-log: classpath:changelog/db-master.xml
